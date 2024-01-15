@@ -13,6 +13,12 @@ function App() {
 
 function TodoListCard() {
     const [items, setItems] = React.useState(null);
+    const titleStyle = {
+        textAlign: 'center',
+        fontSize: '28px',
+        fontWeight: 'bold',
+        marginBottom: '15px',
+    };
 
     React.useEffect(() => {
         fetch('/items')
@@ -51,6 +57,9 @@ function TodoListCard() {
 
     return (
         <React.Fragment>
+            <div style={titleStyle}>
+                <p>ToDo App by Ashmari</p>
+            </div>
             <AddItemForm onNewItem={onNewItem} />
             {items.length === 0 && (
                 <p className="text-center">No items yet! Add one above!</p>
